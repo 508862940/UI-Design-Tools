@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI设计工具集 - 专业的在线设计平台</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="hero-header">
+        <nav class="nav-bar">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-palette"></i>
+                    <span>UI Design Tools</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#tools">工具集</a></li>
+                    <li><a href="#features">特色功能</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="gradient-text">专业UI设计工具集</span>
+            </h1>
+            <p class="hero-subtitle">
+                无需安装，打开即用的在线设计平台<br>
+                为设计师和开发者打造的一站式解决方案
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <i class="fas fa-tools"></i>
+                    <span>3+ 专业工具</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-code"></i>
+                    <span>实时代码生成</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-bolt"></i>
+                    <span>零门槛使用</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="tools" class="tools-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>强大的设计工具集</h2>
+                    <p>每个工具都经过精心设计，满足您的不同需求</p>
+                </div>
+
+                <div class="tools-grid">
+                    <div class="tool-card" onclick="window.location.href='CSS-Generator/index.html'">
+                        <div class="tool-icon css-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3>CSS样式生成器</h3>
+                        <p>一站式CSS工具集合，包含渐变、阴影、动画、按钮、边框等多种生成器</p>
+                        <div class="tool-features">
+                            <span class="feature-tag"><i class="fas fa-rainbow"></i> 渐变生成</span>
+                            <span class="feature-tag"><i class="fas fa-cube"></i> 阴影效果</span>
+                            <span class="feature-tag"><i class="fas fa-play"></i> 动画制作</span>
+                        </div>
+                        <button class="tool-btn">
+                            立即使用 <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='Icon-Designer/index.html'">
+                        <div class="tool-icon icon-icon">
+                            <i class="fas fa-icons"></i>
+                        </div>
+                        <h3>图标设计工具</h3>
+                        <p>专业的SVG图标编辑器，支持自定义绘制、编辑和导出各种格式图标</p>
+                        <div class="tool-features">
+                            <span class="feature-tag"><i class="fas fa-pen"></i> 自由绘制</span>
+                            <span class="feature-tag"><i class="fas fa-layer-group"></i> 图层管理</span>
+                            <span class="feature-tag"><i class="fas fa-download"></i> 多格式导出</span>
+                        </div>
+                        <button class="tool-btn">
+                            立即使用 <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='UI-Designer/index.html'">
+                        <div class="tool-icon ui-icon">
+                            <i class="fas fa-object-group"></i>
+                        </div>
+                        <h3>UI组件设计器</h3>
+                        <p>可视化拖放式UI设计工具，快速创建响应式界面并生成代码</p>
+                        <div class="tool-features">
+                            <span class="feature-tag"><i class="fas fa-th"></i> 组件库</span>
+                            <span class="feature-tag"><i class="fas fa-mobile-alt"></i> 响应式</span>
+                            <span class="feature-tag"><i class="fas fa-code"></i> 代码导出</span>
+                        </div>
+                        <button class="tool-btn coming-soon">
+                            即将推出 <i class="fas fa-clock"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>为什么选择我们</h2>
+                    <p>简单、快速、专业的设计体验</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>零门槛使用</h3>
+                        <p>无需注册登录，打开网页即可使用所有功能</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>实时代码生成</h3>
+                        <p>所见即所得，实时生成可用的HTML/CSS/JS代码</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h3>中文友好</h3>
+                        <p>完全中文界面，专为中文用户优化设计</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>专业设计</h3>
+                        <p>遵循现代设计规范，生成高质量的UI组件</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>响应式支持</h3>
+                        <p>自动适配桌面、平板、手机等多种设备</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>云端访问</h3>
+                        <p>无需下载安装，随时随地在线使用</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <h2>关于UI设计工具集</h2>
+                    <p>
+                        我们致力于为设计师和开发者提供简单易用的在线设计工具。
+                        无论您是专业设计师还是编程新手，都能在这里找到适合的工具，
+                        快速创建精美的用户界面。
+                    </p>
+                    <div class="about-features">
+                        <div class="about-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>永久免费使用</span>
+                        </div>
+                        <div class="about-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>持续更新迭代</span>
+                        </div>
+                        <div class="about-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>开源社区支持</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-palette"></i>
+                    <span>UI Design Tools</span>
+                </div>
+                <p class="footer-text">
+                    &copy; 2025 UI设计工具集 | 让设计更简单
+                </p>
+                <div class="footer-links">
+                    <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                    <a href="#"><i class="fas fa-globe"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI助手浮动按钮 -->
+    <div class="ai-assistant-fab" id="ai-fab">
+        <i class="fas fa-robot"></i>
+        <span class="fab-tooltip">AI样式助手</span>
+    </div>
+
+    <!-- AI助手聊天窗口 -->
+    <div class="ai-chat-window" id="ai-chat-window">
+        <div class="chat-header">
+            <div class="chat-title">
+                <i class="fas fa-robot"></i>
+                <span>AI样式助手</span>
+                <div class="status-indicator online"></div>
+            </div>
+            <div class="chat-actions">
+                <button class="chat-action-btn" id="ai-settings-btn" title="设置">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <button class="chat-action-btn" id="minimize-chat-btn" title="最小化">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button class="chat-action-btn" id="close-chat-btn" title="关闭">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="chat-body">
+            <div class="chat-messages" id="chat-messages">
+                <div class="message assistant">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <p>👋 你好！我是AI样式助手。</p>
+                        <p>告诉我你想要什么样的CSS效果，我来帮你生成代码！</p>
+                        <div class="quick-actions">
+                            <button class="quick-btn" data-prompt="生成拟态风格的按钮样式">🎯 拟态按钮</button>
+                            <button class="quick-btn" data-prompt="创建玻璃态毛玻璃效果">🔮 玻璃态</button>
+                            <button class="quick-btn" data-prompt="设计渐变背景和阴影">🌈 渐变阴影</button>
+                            <button class="quick-btn" data-prompt="制作悬浮卡片效果">📋 悬浮卡片</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-input-area">
+            <div class="input-container">
+                <textarea
+                    id="chat-input"
+                    placeholder="描述你想要的CSS效果，比如：生成拟态风格的按钮..."
+                    rows="2"
+                    maxlength="500"></textarea>
+                <button id="send-btn" class="send-btn" disabled>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <div class="input-footer">
+                <span class="char-count">0/500</span>
+                <div class="input-actions">
+                    <button class="input-action-btn" id="clear-chat-btn" title="清空对话">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                    <button class="input-action-btn" id="examples-btn" title="示例提示">
+                        <i class="fas fa-lightbulb"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI设置模态框 -->
+    <div class="modal" id="ai-settings-modal">
+        <div class="modal-overlay" onclick="closeModal('ai-settings-modal')"></div>
+        <div class="modal-content ai-settings-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-cog"></i> AI助手设置</h3>
+                <button class="close-btn" onclick="closeModal('ai-settings-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-section">
+                    <h4>选择AI服务</h4>
+                    <div class="ai-provider-selection">
+                        <label class="provider-option">
+                            <input type="radio" name="ai-provider" value="gemini" checked>
+                            <div class="provider-card">
+                                <i class="fas fa-gem"></i>
+                                <span>Google Gemini</span>
+                                <small>免费额度，响应快速</small>
+                            </div>
+                        </label>
+                        <label class="provider-option">
+                            <input type="radio" name="ai-provider" value="claude">
+                            <div class="provider-card">
+                                <i class="fas fa-brain"></i>
+                                <span>Anthropic Claude</span>
+                                <small>高质量代码生成</small>
+                            </div>
+                        </label>
+                        <label class="provider-option">
+                            <input type="radio" name="ai-provider" value="openai">
+                            <div class="provider-card">
+                                <i class="fas fa-robot"></i>
+                                <span>OpenAI GPT</span>
+                                <small>官方API</small>
+                            </div>
+                        </label>
+                        <label class="provider-option">
+                            <input type="radio" name="ai-provider" value="openai-compatible">
+                            <div class="provider-card">
+                                <i class="fas fa-server"></i>
+                                <span>OpenAI兼容</span>
+                                <small>代理中转服务</small>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h4>API配置</h4>
+                    <div class="api-config">
+                        <div class="input-group">
+                            <label for="api-key">API密钥</label>
+                            <div class="api-key-input">
+                                <input type="password" id="api-key" placeholder="输入你的API密钥">
+                                <button type="button" class="toggle-password" onclick="togglePasswordVisibility('api-key')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <small class="input-help">
+                                密钥仅存储在本地浏览器，不会上传到服务器
+                            </small>
+                        </div>
+
+                        <div class="input-group" id="endpoint-group">
+                            <label for="api-endpoint">API端点</label>
+                            <div class="endpoint-input-wrapper">
+                                <input type="url" id="api-endpoint" placeholder="自定义API端点地址">
+                                <button type="button" class="preset-btn" onclick="showEndpointPresets()">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                            </div>
+                            <small class="input-help" id="endpoint-help">
+                                支持OpenAI兼容的API服务
+                            </small>
+                        </div>
+
+                        <div class="input-group" id="model-group" style="display: none;">
+                            <label for="api-model">模型名称</label>
+                            <div class="model-input-wrapper">
+                                <input type="text" id="api-model" placeholder="例如: gpt-3.5-turbo" list="model-suggestions">
+                                <button type="button" class="model-help-btn" onclick="showModelSuggestions()">
+                                    <i class="fas fa-info-circle"></i>
+                                </button>
+                            </div>
+                            <datalist id="model-suggestions">
+                                <!-- 动态生成模型建议 -->
+                            </datalist>
+                            <small class="input-help">
+                                根据你使用的服务选择合适的模型，支持自定义输入
+                            </small>
+                        </div>
+
+                        <!-- 模型建议面板 -->
+                        <div class="settings-section" id="model-suggestions-panel" style="display: none;">
+                            <h4>💡 常用模型建议</h4>
+                            <div class="model-categories">
+                                <div class="model-category">
+                                    <h5>OpenAI系列</h5>
+                                    <div class="model-tags">
+                                        <span class="model-tag" data-model="gpt-4o">gpt-4o</span>
+                                        <span class="model-tag" data-model="gpt-4o-mini">gpt-4o-mini</span>
+                                        <span class="model-tag" data-model="gpt-4-turbo">gpt-4-turbo</span>
+                                        <span class="model-tag" data-model="gpt-4">gpt-4</span>
+                                        <span class="model-tag" data-model="gpt-3.5-turbo">gpt-3.5-turbo</span>
+                                        <span class="model-tag" data-model="gpt-3.5-turbo-16k">gpt-3.5-turbo-16k</span>
+                                    </div>
+                                </div>
+
+                                <div class="model-category">
+                                    <h5>Claude系列</h5>
+                                    <div class="model-tags">
+                                        <span class="model-tag" data-model="claude-3-5-sonnet-20241022">claude-3-5-sonnet</span>
+                                        <span class="model-tag" data-model="claude-3-opus-20240229">claude-3-opus</span>
+                                        <span class="model-tag" data-model="claude-3-haiku-20240307">claude-3-haiku</span>
+                                    </div>
+                                </div>
+
+                                <div class="model-category">
+                                    <h5>国产模型</h5>
+                                    <div class="model-tags">
+                                        <span class="model-tag" data-model="deepseek-chat">deepseek-chat</span>
+                                        <span class="model-tag" data-model="deepseek-coder">deepseek-coder</span>
+                                        <span class="model-tag" data-model="moonshot-v1-8k">moonshot-v1-8k</span>
+                                        <span class="model-tag" data-model="moonshot-v1-32k">moonshot-v1-32k</span>
+                                        <span class="model-tag" data-model="moonshot-v1-128k">moonshot-v1-128k</span>
+                                        <span class="model-tag" data-model="glm-4">glm-4</span>
+                                        <span class="model-tag" data-model="glm-4-plus">glm-4-plus</span>
+                                        <span class="model-tag" data-model="glm-3-turbo">glm-3-turbo</span>
+                                    </div>
+                                </div>
+
+                                <div class="model-category">
+                                    <h5>开源模型</h5>
+                                    <div class="model-tags">
+                                        <span class="model-tag" data-model="llama-3-70b-instruct">llama-3-70b</span>
+                                        <span class="model-tag" data-model="llama-3-8b-instruct">llama-3-8b</span>
+                                        <span class="model-tag" data-model="mixtral-8x7b-instruct">mixtral-8x7b</span>
+                                        <span class="model-tag" data-model="qwen-turbo">qwen-turbo</span>
+                                        <span class="model-tag" data-model="qwen-plus">qwen-plus</span>
+                                    </div>
+                                </div>
+
+                                <div class="model-category">
+                                    <h5>代码专用</h5>
+                                    <div class="model-tags">
+                                        <span class="model-tag" data-model="codellama-34b-instruct">codellama-34b</span>
+                                        <span class="model-tag" data-model="codegeex2-6b">codegeex2-6b</span>
+                                        <span class="model-tag" data-model="starcoder2-15b">starcoder2-15b</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="model-input-tips">
+                                <p><i class="fas fa-lightbulb"></i> <strong>提示：</strong></p>
+                                <ul>
+                                    <li>点击模型标签快速填入</li>
+                                    <li>也可以手动输入任何自定义模型名称</li>
+                                    <li>不同服务商的模型名称可能不同</li>
+                                    <li>建议先查看服务商文档确认模型名称</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 端点预设选择 -->
+                <div class="settings-section" id="endpoint-presets" style="display: none;">
+                    <h4>🚀 常用服务预设</h4>
+                    <div class="preset-grid">
+                        <div class="preset-item" data-preset="openai">
+                            <div class="preset-header">
+                                <i class="fas fa-robot"></i>
+                                <span>OpenAI 官方</span>
+                            </div>
+                            <div class="preset-details">
+                                <small>https://api.openai.com/v1</small>
+                            </div>
+                        </div>
+
+                        <div class="preset-item" data-preset="azure">
+                            <div class="preset-header">
+                                <i class="fas fa-cloud"></i>
+                                <span>Azure OpenAI</span>
+                            </div>
+                            <div class="preset-details">
+                                <small>需要配置部署ID</small>
+                            </div>
+                        </div>
+
+                        <div class="preset-item" data-preset="oneapi">
+                            <div class="preset-header">
+                                <i class="fas fa-key"></i>
+                                <span>One API</span>
+                            </div>
+                            <div class="preset-details">
+                                <small>通用中转服务</small>
+                            </div>
+                        </div>
+
+                        <div class="preset-item" data-preset="newapi">
+                            <div class="preset-header">
+                                <i class="fas fa-rocket"></i>
+                                <span>New API</span>
+                            </div>
+                            <div class="preset-details">
+                                <small>高性能中转</small>
+                            </div>
+                        </div>
+
+                        <div class="preset-item" data-preset="deepseek">
+                            <div class="preset-header">
+                                <i class="fas fa-brain"></i>
+                                <span>DeepSeek</span>
+                            </div>
+                            <div class="preset-details">
+                                <small>国产优质模型</small>
+                            </div>
+                        </div>
+
+                        <div class="preset-item" data-preset="moonshot">
+                            <div class="preset-header">
+                                <i class="fas fa-moon"></i>
+                                <span>Moonshot AI</span>
+                            </div>
+                            <div class="preset-details">
+                                <small>Kimi 长文本模型</small>
+                            </div>
+                        </div>
+
+                        <div class="preset-item" data-preset="zhipu">
+                            <div class="preset-header">
+                                <i class="fas fa-star"></i>
+                                <span>智谱AI</span>
+                            </div>
+                            <div class="preset-details">
+                                <small>GLM 系列模型</small>
+                            </div>
+                        </div>
+
+                        <div class="preset-item" data-preset="custom">
+                            <div class="preset-header">
+                                <i class="fas fa-cog"></i>
+                                <span>自定义</span>
+                            </div>
+                            <div class="preset-details">
+                                <small>手动配置端点</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h4>生成设置</h4>
+                    <div class="generation-settings">
+                        <div class="setting-item">
+                            <label>
+                                <span>创意程度</span>
+                                <input type="range" id="creativity-level" min="0" max="100" value="70">
+                                <span class="range-value">70%</span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label>
+                                <span>响应长度</span>
+                                <select id="response-length">
+                                    <option value="short">简洁</option>
+                                    <option value="medium" selected>中等</option>
+                                    <option value="long">详细</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="setting-item checkbox-item">
+                            <label>
+                                <input type="checkbox" id="include-comments" checked>
+                                <span>包含CSS注释</span>
+                            </label>
+                        </div>
+                        <div class="setting-item checkbox-item">
+                            <label>
+                                <input type="checkbox" id="auto-apply" checked>
+                                <span>自动应用到生成器</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="resetAISettings()">重置</button>
+                <button class="btn-primary" onclick="saveAISettings()">保存设置</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 示例提示模态框 -->
+    <div class="modal" id="examples-modal">
+        <div class="modal-overlay" onclick="closeModal('examples-modal')"></div>
+        <div class="modal-content examples-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-lightbulb"></i> 示例提示</h3>
+                <button class="close-btn" onclick="closeModal('examples-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="examples-grid">
+                    <!-- 按钮样式 -->
+                    <div class="example-category">
+                        <h4><i class="fas fa-mouse-pointer"></i> 按钮样式</h4>
+                        <div class="example-items">
+                            <div class="example-item" data-prompt="创建拟态风格的按钮，带有内凹阴影效果">
+                                <div class="example-preview neumorphism-btn">拟态按钮</div>
+                                <span>拟态风格按钮</span>
+                            </div>
+                            <div class="example-item" data-prompt="设计玻璃态按钮，半透明背景和模糊效果">
+                                <div class="example-preview glass-btn">玻璃按钮</div>
+                                <span>玻璃态按钮</span>
+                            </div>
+                            <div class="example-item" data-prompt="制作渐变悬浮按钮，带有光晕效果">
+                                <div class="example-preview gradient-btn">渐变按钮</div>
+                                <span>渐变悬浮按钮</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 卡片样式 -->
+                    <div class="example-category">
+                        <h4><i class="fas fa-id-card"></i> 卡片样式</h4>
+                        <div class="example-items">
+                            <div class="example-item" data-prompt="创建悬浮卡片效果，带有柔和阴影和圆角">
+                                <div class="example-preview floating-card">悬浮卡片</div>
+                                <span>悬浮卡片</span>
+                            </div>
+                            <div class="example-item" data-prompt="设计材料设计风格的卡片，带有立体感">
+                                <div class="example-preview material-card">材料卡片</div>
+                                <span>材料设计卡片</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 背景效果 -->
+                    <div class="example-category">
+                        <h4><i class="fas fa-palette"></i> 背景效果</h4>
+                        <div class="example-items">
+                            <div class="example-item" data-prompt="创建动态渐变背景，从紫色到蓝色">
+                                <div class="example-preview gradient-bg">渐变背景</div>
+                                <span>动态渐变</span>
+                            </div>
+                            <div class="example-item" data-prompt="设计点状图案背景，用于装饰">
+                                <div class="example-preview dot-bg">点状背景</div>
+                                <span>图案背景</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 输入框样式 -->
+                    <div class="example-category">
+                        <h4><i class="fas fa-edit"></i> 输入框样式</h4>
+                        <div class="example-items">
+                            <div class="example-item" data-prompt="创建现代化的输入框，带有聚焦动画">
+                                <div class="example-preview modern-input">输入框</div>
+                                <span>现代输入框</span>
+                            </div>
+                            <div class="example-item" data-prompt="设计浮动标签输入框效果">
+                                <div class="example-preview floating-label">浮动标签</div>
+                                <span>浮动标签</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

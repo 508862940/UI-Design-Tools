@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图标设计工具 - SVG图标编辑器</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="back-nav">
+                    <a href="../index.html" class="back-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>返回工具集</span>
+                    </a>
+                </div>
+                <div class="header-main">
+                    <h1><i class="fas fa-icons"></i> 图标设计工具</h1>
+                    <p>专业的SVG图标编辑器 - 创造你的专属图标</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-layout">
+        <!-- 工具栏 -->
+        <aside class="toolbar">
+            <div class="tool-section">
+                <h3><i class="fas fa-tools"></i> 绘图工具</h3>
+                <div class="tool-group">
+                    <button class="tool-btn active" data-tool="select" title="选择工具">
+                        <i class="fas fa-mouse-pointer"></i>
+                        <span>选择</span>
+                    </button>
+                    <button class="tool-btn" data-tool="rectangle" title="矩形">
+                        <i class="fas fa-square"></i>
+                        <span>矩形</span>
+                    </button>
+                    <button class="tool-btn" data-tool="circle" title="圆形">
+                        <i class="fas fa-circle"></i>
+                        <span>圆形</span>
+                    </button>
+                    <button class="tool-btn" data-tool="line" title="直线">
+                        <i class="fas fa-minus"></i>
+                        <span>直线</span>
+                    </button>
+                    <button class="tool-btn" data-tool="path" title="路径">
+                        <i class="fas fa-pen"></i>
+                        <span>路径</span>
+                    </button>
+                    <button class="tool-btn" data-tool="text" title="文字">
+                        <i class="fas fa-font"></i>
+                        <span>文字</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="tool-section">
+                <h3><i class="fas fa-palette"></i> 样式</h3>
+                <div class="style-controls">
+                    <div class="control-group">
+                        <label for="fill-color">填充颜色:</label>
+                        <div class="color-input-group">
+                            <input type="color" id="fill-color" value="#007bff">
+                            <button class="no-fill-btn" id="no-fill" title="无填充">
+                                <i class="fas fa-ban"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="stroke-color">边框颜色:</label>
+                        <div class="color-input-group">
+                            <input type="color" id="stroke-color" value="#000000">
+                            <button class="no-stroke-btn" id="no-stroke" title="无边框">
+                                <i class="fas fa-ban"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="stroke-width">边框宽度:</label>
+                        <input type="range" id="stroke-width" min="0" max="10" value="2" step="0.5">
+                        <span id="stroke-width-value">2</span>px
+                    </div>
+
+                    <div class="control-group">
+                        <label for="opacity">透明度:</label>
+                        <input type="range" id="opacity" min="0" max="1" value="1" step="0.1">
+                        <span id="opacity-value">1</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-section">
+                <h3><i class="fas fa-layer-group"></i> 操作</h3>
+                <div class="action-group">
+                    <button class="action-btn" onclick="clearCanvas()">
+                        <i class="fas fa-trash"></i>
+                        <span>清空</span>
+                    </button>
+                    <button class="action-btn" onclick="undoAction()">
+                        <i class="fas fa-undo"></i>
+                        <span>撤销</span>
+                    </button>
+                    <button class="action-btn" onclick="redoAction()">
+                        <i class="fas fa-redo"></i>
+                        <span>重做</span>
+                    </button>
+                    <button class="action-btn" onclick="deleteSelected()">
+                        <i class="fas fa-times"></i>
+                        <span>删除</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="tool-section">
+                <h3><i class="fas fa-download"></i> 导出</h3>
+                <div class="export-group">
+                    <button class="export-btn" onclick="exportSVG()">
+                        <i class="fas fa-code"></i>
+                        <span>SVG代码</span>
+                    </button>
+                    <button class="export-btn" onclick="exportPNG()">
+                        <i class="fas fa-image"></i>
+                        <span>PNG图片</span>
+                    </button>
+                    <button class="export-btn" onclick="saveProject()">
+                        <i class="fas fa-save"></i>
+                        <span>保存项目</span>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 画布区域 -->
+        <main class="canvas-area">
+            <div class="canvas-toolbar">
+                <div class="canvas-info">
+                    <span>画布大小: </span>
+                    <select id="canvas-size">
+                        <option value="24">24×24</option>
+                        <option value="32">32×32</option>
+                        <option value="48">48×48</option>
+                        <option value="64" selected>64×64</option>
+                        <option value="128">128×128</option>
+                        <option value="256">256×256</option>
+                    </select>
+                    <span class="zoom-controls">
+                        缩放:
+                        <button onclick="zoomOut()"><i class="fas fa-minus"></i></button>
+                        <span id="zoom-level">100%</span>
+                        <button onclick="zoomIn()"><i class="fas fa-plus"></i></button>
+                    </span>
+                </div>
+
+                <div class="grid-controls">
+                    <label>
+                        <input type="checkbox" id="show-grid" checked>
+                        显示网格
+                    </label>
+                    <label>
+                        <input type="checkbox" id="snap-to-grid">
+                        对齐网格
+                    </label>
+                </div>
+            </div>
+
+            <div class="canvas-container" id="canvas-container">
+                <svg id="main-svg" width="400" height="400" viewBox="0 0 64 64">
+                    <defs>
+                        <pattern id="grid" width="4" height="4" patternUnits="userSpaceOnUse">
+                            <path d="M 4 0 L 0 0 0 4" fill="none" stroke="#e0e0e0" stroke-width="0.5"/>
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid)" class="grid-bg"/>
+                </svg>
+            </div>
+        </main>
+
+        <!-- 图标库 -->
+        <aside class="icon-library">
+            <div class="library-header">
+                <h3><i class="fas fa-th"></i> 图标库</h3>
+                <div class="library-tabs">
+                    <button class="lib-tab active" data-tab="templates">模板</button>
+                    <button class="lib-tab" data-tab="recent">最近</button>
+                </div>
+            </div>
+
+            <div class="library-content">
+                <div class="tab-content active" id="templates">
+                    <div class="icon-grid">
+                        <!-- 预设图标模板 -->
+                        <div class="icon-item" onclick="loadTemplate('heart')">
+                            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                            <span>心形</span>
+                        </div>
+
+                        <div class="icon-item" onclick="loadTemplate('star')">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <span>星形</span>
+                        </div>
+
+                        <div class="icon-item" onclick="loadTemplate('home')">
+                            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                            <span>房子</span>
+                        </div>
+
+                        <div class="icon-item" onclick="loadTemplate('user')">
+                            <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                            <span>用户</span>
+                        </div>
+
+                        <div class="icon-item" onclick="loadTemplate('settings')">
+                            <svg viewBox="0 0 24 24"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
+                            <span>设置</span>
+                        </div>
+
+                        <div class="icon-item" onclick="loadTemplate('mail')">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            <span>邮件</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="recent">
+                    <div class="icon-grid" id="recent-icons">
+                        <div class="empty-state">
+                            <i class="fas fa-clock"></i>
+                            <p>暂无最近使用的图标</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- SVG代码预览模态框 -->
+    <div class="modal" id="svg-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-code"></i> SVG代码</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <textarea id="svg-code" readonly></textarea>
+                <div class="modal-actions">
+                    <button class="btn-primary" onclick="copySVGCode()">
+                        <i class="fas fa-copy"></i> 复制代码
+                    </button>
+                    <button class="btn-secondary" onclick="downloadSVG()">
+                        <i class="fas fa-download"></i> 下载SVG
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

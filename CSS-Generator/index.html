@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS样式生成器 - 一站式CSS工具集</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="back-nav">
+                    <a href="../index.html" class="back-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>返回工具集</span>
+                    </a>
+                </div>
+                <div class="header-main">
+                    <h1><i class="fas fa-palette"></i> CSS样式生成器</h1>
+                    <p>一站式CSS工具集合 - 让设计更简单</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-tabs">
+                <button class="nav-tab active" data-tab="gradient">
+                    <i class="fas fa-rainbow"></i> 渐变生成器
+                </button>
+                <button class="nav-tab" data-tab="shadow">
+                    <i class="fas fa-cube"></i> 阴影生成器
+                </button>
+                <button class="nav-tab" data-tab="animation">
+                    <i class="fas fa-play"></i> 动画生成器
+                </button>
+                <button class="nav-tab" data-tab="button">
+                    <i class="fas fa-mouse-pointer"></i> 按钮生成器
+                </button>
+                <button class="nav-tab" data-tab="border">
+                    <i class="fas fa-border-style"></i> 边框生成器
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main">
+        <div class="container">
+            <!-- 渐变生成器 -->
+            <div class="tool-panel active" id="gradient">
+                <div class="panel-header">
+                    <h2><i class="fas fa-rainbow"></i> 渐变生成器</h2>
+                    <p>创建漂亮的CSS渐变效果</p>
+                </div>
+                <div class="panel-content">
+                    <div class="controls">
+                        <div class="control-group">
+                            <label for="gradient-type">渐变类型:</label>
+                            <select id="gradient-type">
+                                <option value="linear">线性渐变</option>
+                                <option value="radial">径向渐变</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="gradient-direction">方向:</label>
+                            <select id="gradient-direction">
+                                <option value="to right">向右</option>
+                                <option value="to left">向左</option>
+                                <option value="to bottom">向下</option>
+                                <option value="to top">向上</option>
+                                <option value="45deg">45度</option>
+                                <option value="135deg">135度</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="color1">颜色1:</label>
+                            <input type="color" id="color1" value="#ff6b6b">
+                        </div>
+                        <div class="control-group">
+                            <label for="color2">颜色2:</label>
+                            <input type="color" id="color2" value="#4ecdc4">
+                        </div>
+                    </div>
+                    <div class="preview">
+                        <div class="preview-box" id="gradient-preview"></div>
+                    </div>
+                    <div class="code-output">
+                        <label for="gradient-code">CSS代码:</label>
+                        <textarea id="gradient-code" readonly></textarea>
+                        <button class="copy-btn" onclick="copyCode('gradient-code')">
+                            <i class="fas fa-copy"></i> 复制代码
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 阴影生成器 -->
+            <div class="tool-panel" id="shadow">
+                <div class="panel-header">
+                    <h2><i class="fas fa-cube"></i> 阴影生成器</h2>
+                    <p>创建各种阴影效果</p>
+                </div>
+                <div class="panel-content">
+                    <div class="controls">
+                        <div class="control-group">
+                            <label for="shadow-x">水平偏移:</label>
+                            <input type="range" id="shadow-x" min="-50" max="50" value="0">
+                            <span id="shadow-x-value">0</span>px
+                        </div>
+                        <div class="control-group">
+                            <label for="shadow-y">垂直偏移:</label>
+                            <input type="range" id="shadow-y" min="-50" max="50" value="10">
+                            <span id="shadow-y-value">10</span>px
+                        </div>
+                        <div class="control-group">
+                            <label for="shadow-blur">模糊半径:</label>
+                            <input type="range" id="shadow-blur" min="0" max="100" value="20">
+                            <span id="shadow-blur-value">20</span>px
+                        </div>
+                        <div class="control-group">
+                            <label for="shadow-spread">扩展半径:</label>
+                            <input type="range" id="shadow-spread" min="-50" max="50" value="0">
+                            <span id="shadow-spread-value">0</span>px
+                        </div>
+                        <div class="control-group">
+                            <label for="shadow-color">阴影颜色:</label>
+                            <input type="color" id="shadow-color" value="#000000">
+                        </div>
+                        <div class="control-group">
+                            <label for="shadow-opacity">透明度:</label>
+                            <input type="range" id="shadow-opacity" min="0" max="1" step="0.1" value="0.3">
+                            <span id="shadow-opacity-value">0.3</span>
+                        </div>
+                    </div>
+                    <div class="preview">
+                        <div class="preview-box shadow-box" id="shadow-preview"></div>
+                    </div>
+                    <div class="code-output">
+                        <label for="shadow-code">CSS代码:</label>
+                        <textarea id="shadow-code" readonly></textarea>
+                        <button class="copy-btn" onclick="copyCode('shadow-code')">
+                            <i class="fas fa-copy"></i> 复制代码
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 动画生成器 -->
+            <div class="tool-panel" id="animation">
+                <div class="panel-header">
+                    <h2><i class="fas fa-play"></i> 动画生成器</h2>
+                    <p>创建CSS动画效果</p>
+                </div>
+                <div class="panel-content">
+                    <div class="controls">
+                        <div class="control-group">
+                            <label for="animation-type">动画类型:</label>
+                            <select id="animation-type">
+                                <option value="fadeIn">淡入</option>
+                                <option value="fadeOut">淡出</option>
+                                <option value="slideInLeft">从左滑入</option>
+                                <option value="slideInRight">从右滑入</option>
+                                <option value="bounce">弹跳</option>
+                                <option value="pulse">脉冲</option>
+                                <option value="rotate">旋转</option>
+                                <option value="scale">缩放</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="animation-duration">持续时间:</label>
+                            <input type="range" id="animation-duration" min="0.1" max="5" step="0.1" value="1">
+                            <span id="animation-duration-value">1</span>s
+                        </div>
+                        <div class="control-group">
+                            <label for="animation-delay">延迟时间:</label>
+                            <input type="range" id="animation-delay" min="0" max="3" step="0.1" value="0">
+                            <span id="animation-delay-value">0</span>s
+                        </div>
+                        <div class="control-group">
+                            <label for="animation-timing">缓动函数:</label>
+                            <select id="animation-timing">
+                                <option value="ease">ease</option>
+                                <option value="ease-in">ease-in</option>
+                                <option value="ease-out">ease-out</option>
+                                <option value="ease-in-out">ease-in-out</option>
+                                <option value="linear">linear</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="animation-count">重复次数:</label>
+                            <select id="animation-count">
+                                <option value="1">1次</option>
+                                <option value="2">2次</option>
+                                <option value="3">3次</option>
+                                <option value="infinite">无限</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="preview">
+                        <div class="preview-box" id="animation-preview">
+                            <div class="animation-demo">动画演示</div>
+                        </div>
+                        <button class="play-btn" onclick="playAnimation()">
+                            <i class="fas fa-play"></i> 播放动画
+                        </button>
+                    </div>
+                    <div class="code-output">
+                        <label for="animation-code">CSS代码:</label>
+                        <textarea id="animation-code" readonly></textarea>
+                        <button class="copy-btn" onclick="copyCode('animation-code')">
+                            <i class="fas fa-copy"></i> 复制代码
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 按钮生成器 -->
+            <div class="tool-panel" id="button">
+                <div class="panel-header">
+                    <h2><i class="fas fa-mouse-pointer"></i> 按钮生成器</h2>
+                    <p>创建漂亮的按钮样式</p>
+                </div>
+                <div class="panel-content">
+                    <div class="controls">
+                        <div class="control-group">
+                            <label for="button-text">按钮文字:</label>
+                            <input type="text" id="button-text" value="点击我">
+                        </div>
+                        <div class="control-group">
+                            <label for="button-bg">背景颜色:</label>
+                            <input type="color" id="button-bg" value="#007bff">
+                        </div>
+                        <div class="control-group">
+                            <label for="button-text-color">文字颜色:</label>
+                            <input type="color" id="button-text-color" value="#ffffff">
+                        </div>
+                        <div class="control-group">
+                            <label for="button-padding">内边距:</label>
+                            <input type="range" id="button-padding" min="5" max="30" value="12">
+                            <span id="button-padding-value">12</span>px
+                        </div>
+                        <div class="control-group">
+                            <label for="button-radius">圆角:</label>
+                            <input type="range" id="button-radius" min="0" max="50" value="6">
+                            <span id="button-radius-value">6</span>px
+                        </div>
+                        <div class="control-group">
+                            <label for="button-size">字体大小:</label>
+                            <input type="range" id="button-size" min="12" max="24" value="16">
+                            <span id="button-size-value">16</span>px
+                        </div>
+                    </div>
+                    <div class="preview">
+                        <button class="preview-button" id="button-preview">点击我</button>
+                    </div>
+                    <div class="code-output">
+                        <label for="button-code">CSS代码:</label>
+                        <textarea id="button-code" readonly></textarea>
+                        <button class="copy-btn" onclick="copyCode('button-code')">
+                            <i class="fas fa-copy"></i> 复制代码
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 边框生成器 -->
+            <div class="tool-panel" id="border">
+                <div class="panel-header">
+                    <h2><i class="fas fa-border-style"></i> 边框生成器</h2>
+                    <p>创建各种边框样式</p>
+                </div>
+                <div class="panel-content">
+                    <div class="controls">
+                        <div class="control-group">
+                            <label for="border-width">边框宽度:</label>
+                            <input type="range" id="border-width" min="1" max="10" value="2">
+                            <span id="border-width-value">2</span>px
+                        </div>
+                        <div class="control-group">
+                            <label for="border-style">边框样式:</label>
+                            <select id="border-style">
+                                <option value="solid">实线</option>
+                                <option value="dashed">虚线</option>
+                                <option value="dotted">点线</option>
+                                <option value="double">双线</option>
+                                <option value="groove">凹槽</option>
+                                <option value="ridge">脊线</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="border-color">边框颜色:</label>
+                            <input type="color" id="border-color" value="#007bff">
+                        </div>
+                        <div class="control-group">
+                            <label for="border-radius">圆角:</label>
+                            <input type="range" id="border-radius" min="0" max="50" value="8">
+                            <span id="border-radius-value">8</span>px
+                        </div>
+                    </div>
+                    <div class="preview">
+                        <div class="preview-box border-box" id="border-preview">边框预览</div>
+                    </div>
+                    <div class="code-output">
+                        <label for="border-code">CSS代码:</label>
+                        <textarea id="border-code" readonly></textarea>
+                        <button class="copy-btn" onclick="copyCode('border-code')">
+                            <i class="fas fa-copy"></i> 复制代码
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 CSS样式生成器 - 让设计更简单 ✨</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

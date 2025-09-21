@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI组件设计器 - 可视化拖放设计工具</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- GrapesJS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/grapesjs/dist/css/grapes.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="back-nav">
+                    <a href="../index.html" class="back-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>返回工具集</span>
+                    </a>
+                </div>
+                <div class="header-main">
+                    <h1><i class="fas fa-object-group"></i> UI组件设计器</h1>
+                    <p>可视化拖放式UI设计工具 - 快速创建响应式界面</p>
+                </div>
+                <div class="header-actions">
+                    <button class="action-btn" id="preview-btn">
+                        <i class="fas fa-eye"></i>
+                        <span>预览</span>
+                    </button>
+                    <button class="action-btn" id="export-btn">
+                        <i class="fas fa-download"></i>
+                        <span>导出</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="designer-layout">
+        <!-- 左侧组件面板 -->
+        <aside class="components-panel">
+            <div class="panel-header">
+                <h3><i class="fas fa-th"></i> 组件库</h3>
+                <div class="panel-tabs">
+                    <button class="tab-btn active" data-tab="basic">基础</button>
+                    <button class="tab-btn" data-tab="layout">布局</button>
+                    <button class="tab-btn" data-tab="form">表单</button>
+                    <button class="tab-btn" data-tab="media">媒体</button>
+                </div>
+            </div>
+
+            <div class="panel-content">
+                <!-- 基础组件 -->
+                <div class="tab-content active" id="basic-tab">
+                    <div class="component-group">
+                        <h4>文本</h4>
+                        <div class="component-items">
+                            <div class="component-item" data-type="text">
+                                <i class="fas fa-font"></i>
+                                <span>文本</span>
+                            </div>
+                            <div class="component-item" data-type="heading">
+                                <i class="fas fa-heading"></i>
+                                <span>标题</span>
+                            </div>
+                            <div class="component-item" data-type="paragraph">
+                                <i class="fas fa-paragraph"></i>
+                                <span>段落</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="component-group">
+                        <h4>按钮</h4>
+                        <div class="component-items">
+                            <div class="component-item" data-type="button">
+                                <i class="fas fa-mouse-pointer"></i>
+                                <span>按钮</span>
+                            </div>
+                            <div class="component-item" data-type="link">
+                                <i class="fas fa-link"></i>
+                                <span>链接</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="component-group">
+                        <h4>基础元素</h4>
+                        <div class="component-items">
+                            <div class="component-item" data-type="image">
+                                <i class="fas fa-image"></i>
+                                <span>图片</span>
+                            </div>
+                            <div class="component-item" data-type="icon">
+                                <i class="fas fa-star"></i>
+                                <span>图标</span>
+                            </div>
+                            <div class="component-item" data-type="divider">
+                                <i class="fas fa-minus"></i>
+                                <span>分割线</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 布局组件 -->
+                <div class="tab-content" id="layout-tab">
+                    <div class="component-group">
+                        <h4>容器</h4>
+                        <div class="component-items">
+                            <div class="component-item" data-type="container">
+                                <i class="fas fa-square"></i>
+                                <span>容器</span>
+                            </div>
+                            <div class="component-item" data-type="section">
+                                <i class="fas fa-layer-group"></i>
+                                <span>区块</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="component-group">
+                        <h4>网格布局</h4>
+                        <div class="component-items">
+                            <div class="component-item" data-type="row">
+                                <i class="fas fa-bars"></i>
+                                <span>行</span>
+                            </div>
+                            <div class="component-item" data-type="column">
+                                <i class="fas fa-columns"></i>
+                                <span>列</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 表单组件 -->
+                <div class="tab-content" id="form-tab">
+                    <div class="component-group">
+                        <h4>输入控件</h4>
+                        <div class="component-items">
+                            <div class="component-item" data-type="input">
+                                <i class="fas fa-edit"></i>
+                                <span>输入框</span>
+                            </div>
+                            <div class="component-item" data-type="textarea">
+                                <i class="fas fa-align-left"></i>
+                                <span>文本域</span>
+                            </div>
+                            <div class="component-item" data-type="select">
+                                <i class="fas fa-caret-down"></i>
+                                <span>下拉框</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="component-group">
+                        <h4>选择控件</h4>
+                        <div class="component-items">
+                            <div class="component-item" data-type="checkbox">
+                                <i class="fas fa-check-square"></i>
+                                <span>复选框</span>
+                            </div>
+                            <div class="component-item" data-type="radio">
+                                <i class="fas fa-dot-circle"></i>
+                                <span>单选框</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 媒体组件 -->
+                <div class="tab-content" id="media-tab">
+                    <div class="component-group">
+                        <h4>媒体元素</h4>
+                        <div class="component-items">
+                            <div class="component-item" data-type="video">
+                                <i class="fas fa-video"></i>
+                                <span>视频</span>
+                            </div>
+                            <div class="component-item" data-type="audio">
+                                <i class="fas fa-volume-up"></i>
+                                <span>音频</span>
+                            </div>
+                            <div class="component-item" data-type="iframe">
+                                <i class="fas fa-window-maximize"></i>
+                                <span>嵌入</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 主设计区域 -->
+        <main class="design-area">
+            <div class="design-toolbar">
+                <div class="toolbar-left">
+                    <button class="tool-btn" id="undo-btn" title="撤销">
+                        <i class="fas fa-undo"></i>
+                    </button>
+                    <button class="tool-btn" id="redo-btn" title="重做">
+                        <i class="fas fa-redo"></i>
+                    </button>
+                    <div class="separator"></div>
+                    <button class="tool-btn" id="desktop-view" class="active" title="桌面视图">
+                        <i class="fas fa-desktop"></i>
+                    </button>
+                    <button class="tool-btn" id="tablet-view" title="平板视图">
+                        <i class="fas fa-tablet-alt"></i>
+                    </button>
+                    <button class="tool-btn" id="mobile-view" title="手机视图">
+                        <i class="fas fa-mobile-alt"></i>
+                    </button>
+                </div>
+
+                <div class="toolbar-center">
+                    <span class="current-device">桌面视图</span>
+                    <span class="canvas-size">1200px</span>
+                </div>
+
+                <div class="toolbar-right">
+                    <button class="tool-btn" id="fullscreen-btn" title="全屏">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                    <button class="tool-btn" id="clear-btn" title="清空画布">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- GrapesJS 编辑器容器 -->
+            <div id="gjs" class="design-canvas">
+                <!-- 默认内容 -->
+                <div class="welcome-content">
+                    <div class="welcome-message">
+                        <i class="fas fa-mouse-pointer"></i>
+                        <h3>开始设计您的界面</h3>
+                        <p>从左侧组件库拖拽组件到此处开始设计</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 右侧属性面板 -->
+        <aside class="properties-panel">
+            <div class="panel-header">
+                <h3><i class="fas fa-cog"></i> 属性设置</h3>
+                <div class="panel-tabs">
+                    <button class="tab-btn active" data-tab="style">样式</button>
+                    <button class="tab-btn" data-tab="settings">设置</button>
+                </div>
+            </div>
+
+            <div class="panel-content">
+                <!-- 样式面板 -->
+                <div class="tab-content active" id="style-tab">
+                    <div class="style-section">
+                        <h4>布局</h4>
+                        <div class="style-controls">
+                            <div class="control-group">
+                                <label>显示方式</label>
+                                <select id="display-type">
+                                    <option value="block">块级</option>
+                                    <option value="inline">内联</option>
+                                    <option value="flex">弹性</option>
+                                    <option value="grid">网格</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="style-section">
+                        <h4>尺寸</h4>
+                        <div class="style-controls">
+                            <div class="control-row">
+                                <div class="control-group">
+                                    <label>宽度</label>
+                                    <input type="text" id="width" placeholder="auto">
+                                </div>
+                                <div class="control-group">
+                                    <label>高度</label>
+                                    <input type="text" id="height" placeholder="auto">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="style-section">
+                        <h4>颜色</h4>
+                        <div class="style-controls">
+                            <div class="control-group">
+                                <label>背景色</label>
+                                <div class="color-input">
+                                    <input type="color" id="bg-color">
+                                    <input type="text" id="bg-color-text" placeholder="transparent">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label>文字色</label>
+                                <div class="color-input">
+                                    <input type="color" id="text-color">
+                                    <input type="text" id="text-color-text" placeholder="#333">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="style-section">
+                        <h4>间距</h4>
+                        <div class="style-controls">
+                            <div class="spacing-control">
+                                <label>外边距</label>
+                                <div class="spacing-inputs">
+                                    <input type="text" placeholder="上" id="margin-top">
+                                    <input type="text" placeholder="右" id="margin-right">
+                                    <input type="text" placeholder="下" id="margin-bottom">
+                                    <input type="text" placeholder="左" id="margin-left">
+                                </div>
+                            </div>
+                            <div class="spacing-control">
+                                <label>内边距</label>
+                                <div class="spacing-inputs">
+                                    <input type="text" placeholder="上" id="padding-top">
+                                    <input type="text" placeholder="右" id="padding-right">
+                                    <input type="text" placeholder="下" id="padding-bottom">
+                                    <input type="text" placeholder="左" id="padding-left">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 设置面板 -->
+                <div class="tab-content" id="settings-tab">
+                    <div class="style-section">
+                        <h4>元素属性</h4>
+                        <div class="style-controls">
+                            <div class="control-group">
+                                <label>ID</label>
+                                <input type="text" id="element-id" placeholder="元素ID">
+                            </div>
+                            <div class="control-group">
+                                <label>Class</label>
+                                <input type="text" id="element-class" placeholder="CSS类名">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="style-section">
+                        <h4>内容设置</h4>
+                        <div class="style-controls">
+                            <div class="control-group">
+                                <label>文本内容</label>
+                                <textarea id="element-content" placeholder="元素内容"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- 预览模态框 -->
+    <div class="modal" id="preview-modal">
+        <div class="modal-overlay" onclick="closeModal('preview-modal')"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-eye"></i> 预览效果</h3>
+                <button class="close-btn" onclick="closeModal('preview-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="preview-container">
+                    <iframe id="preview-frame" src="about:blank"></iframe>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('preview-modal')">关闭</button>
+                <button class="btn-primary" onclick="exportCode()">导出代码</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导出模态框 -->
+    <div class="modal" id="export-modal">
+        <div class="modal-overlay" onclick="closeModal('export-modal')"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-download"></i> 导出代码</h3>
+                <button class="close-btn" onclick="closeModal('export-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="export-tabs">
+                    <button class="export-tab active" data-tab="html">HTML</button>
+                    <button class="export-tab" data-tab="css">CSS</button>
+                    <button class="export-tab" data-tab="js">JavaScript</button>
+                </div>
+                <div class="export-content">
+                    <textarea id="export-html" readonly></textarea>
+                    <textarea id="export-css" readonly style="display: none;"></textarea>
+                    <textarea id="export-js" readonly style="display: none;"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('export-modal')">关闭</button>
+                <button class="btn-primary" onclick="copyExportCode()">
+                    <i class="fas fa-copy"></i> 复制代码
+                </button>
+                <button class="btn-primary" onclick="downloadCode()">
+                    <i class="fas fa-download"></i> 下载文件
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GrapesJS JavaScript -->
+    <script src="https://unpkg.com/grapesjs"></script>
+    <script src="https://unpkg.com/grapesjs-blocks-basic"></script>
+    <script src="script.js"></script>
+</body>
+</html>
